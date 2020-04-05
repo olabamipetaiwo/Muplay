@@ -1,0 +1,181 @@
+.container {
+    display:flex;
+    background-color: #e5e8f1;
+    height: 100vh;
+    flex-direction:column;
+    justify-content:center;
+    align-items: center;
+}
+
+.icon {
+    color:#c9c9c9;  
+    cursor:pointer;
+    transition: all .2s;
+
+    &:hover {
+        color:#3e2abf;
+    }
+
+}
+
+
+.icon.active {
+    color:#7a6ae2;
+    font-size:1.5rem;
+}
+
+.auto {
+    margin-right:auto;
+}
+
+
+
+
+
+.player {
+    background-color: #ffffff;
+    max-height:85vh;
+    height:85vh;
+    width:35rem;
+    border-radius:4rem;
+
+    &__options {
+        height:10vh;
+        border-top-left-radius:4rem;
+        border-top-right-radius:4rem;
+        @include flexCenter;
+        justify-content:space-between;
+    }
+
+    &__details {
+        height:50vh;
+        @include flexCenter;
+        flex-direction:column;
+        text-align:center;
+
+        figure {
+            border-radius:2rem;
+            height:85%;
+            width:80%;
+
+            img {
+                width:100%;
+                height:100%;
+                border-radius:2rem;
+                object-fit:center;
+            }
+        }
+
+        h2 {
+            margin-top:1rem;
+            color:$primary;
+        }
+
+        p {
+            color:#878789;
+            font-size:1.1rem;
+        }
+    }
+
+    &__progress {
+        height:7vh;
+        @include flexCenter;
+        flex-wrap:wrap;
+
+        .time {
+             flex-basis: 100%;
+            @include flexCenter;
+            justify-content: space-between;
+            margin:1rem;
+
+            p {
+                color:$primary;
+                font-weight:500;
+            }
+        }
+
+        .progress {
+            background-color: #ddd;
+            height: 5px;
+            flex-basis: 100%;
+            position:relative;
+            cursor:pointer;
+
+            &-bar {
+                border-radius: 3px;
+                background-color:$primary;
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 5px;
+                width: 0%;
+                cursor:pointer;
+
+                &::after {
+                    background-color:$primary;
+                    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+                    content: '';
+                    position: absolute;
+                    top:-.5rem;
+                    right:-1rem;
+                    height:15px;
+                    width: 15px;
+                    border-radius:50%;
+                    animation: pulse 3s infinite;
+                }
+            }
+        }
+        
+    }
+
+    &__control {
+        flex-grow:1;
+        height:12vh;
+        width:80%;
+        margin:0 auto;
+        @include flexCenter;
+        justify-content:space-between;
+        cursor:pointer;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
