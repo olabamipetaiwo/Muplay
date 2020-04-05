@@ -39,6 +39,10 @@
     width:35rem;
     border-radius:4rem;
 
+    @include respond(phone) {
+       width:80%;
+     }
+
     &__options {
         height:10vh;
         border-top-left-radius:4rem;
