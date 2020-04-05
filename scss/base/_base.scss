@@ -77,11 +77,19 @@
         h2 {
             margin-top:1rem;
             color:$primary;
+
+            @include respond(phone) {
+              font-size:2rem;
+            }
         }
 
         p {
             color:#878789;
             font-size:1.1rem;
+
+            @include respond(phone) {
+                font-size:1.5rem;
+              }
         }
     }
 

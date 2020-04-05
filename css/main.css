@@ -298,9 +298,21 @@ p {
   color: #3e2abf;
 }
 
+@media only screen and (max-width: 37.5em) {
+  .player__details h2 {
+    font-size: 2rem;
+  }
+}
+
 .player__details p {
   color: #878789;
   font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 37.5em) {
+  .player__details p {
+    font-size: 1.5rem;
+  }
 }
 
 .player__progress {
