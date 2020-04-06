@@ -15,27 +15,34 @@ let playing = true;
 
 let songIndex = 0;
 
-let songs = [  
-    {
-     audioLink: './songs/Congratulations.mp3',
-     artImage:'./img/Congratulations.jpg',
-     artiste:'Post Malone'
-    },
-    {
-        audioLink: './songs/Fast.mp3',
-        artImage:'./img/Fast.jpg',
-        artiste:'Juixwrld'
-    },
-    {
-        audioLink: './songs/Maze.mp3',
-        artImage:'./img/Maze.jpg',
-        artiste:'Juixwrld'
-    },
-    {
-        audioLink: './songs/The Box.mp3',
-        artImage:'./img/TheBox.jpg',
-        artiste:'Roody Rich'
-    }
+console.log(song)
+
+let songs = [   
+            './songs/Congratulations.mp3',     
+            './songs/Fast.mp3',
+            './songs/Maze.mp3',
+            './songs/TheBox.mp3'
+        ];
+
+let arts = [  
+            './img/Congratulations.jpg',
+            './img/Fast.jpg',
+            './img/Maze.jpg',
+            './img/TheBox.jpg'
+]; 
+
+let artists = [ 
+            'Post Malone', 
+            'JuixWrld',
+            'JuixWrld',
+            'Roody Rich'
+]; 
+
+let  titles = [  
+    "Congratulations",
+    "Fast",
+    "Maze",
+    "The Box"
 ]; 
 
 
@@ -92,11 +99,11 @@ let nextSong = () => {
     if (songIndex > songs.length - 1) {
         songIndex = 0;
     };
-    let {audioLink,artImage,artiste} = songs[songIndex];
-    song.src = audioLink;
-    art.src =  artImage;
-    artist.textContent = artiste;
-    title.textContent = audioLink.split("/")[2].split(".")[0];
+    song.src = songs[songIndex];
+    art.src = arts[songIndex];
+
+    artist.textContent = artists[songIndex];
+    title.textContent= titles[songIndex];
     progressBar.style.transition = "all .1s";
     progressBar.style.width = "0%";
 
@@ -109,11 +116,11 @@ let previousSong = () => {
     if (songIndex < 0) {
         songIndex =  songs.length - 1;
     };
-    let {audioLink,artImage,artiste} = songs[songIndex];
-    song.src = audioLink;
-    art.src =  artImage;
-    artist.textContent = artiste;
-    title.textContent = audioLink.split("/")[2].split(".")[0];
+    song.src = songs[songIndex];
+    art.src = arts[songIndex];
+
+    artist.innerHTML = artists[songIndex];
+    title.innerHTML = titles[songIndex];
     progressBar.style.transition = "all .1s";
     progressBar.style.width = "0%";
 
@@ -140,8 +147,15 @@ let updateProgressValue = () => {
     if (duration.innerHTML === "NaN:NaN") {
         duration.innerHTML = "0:00";
     } else {
+        // duration.innerHTML = (formatTime(Math.floor(song.duration)));
         duration.innerHTML =  remainning;
     }
 };
 
 setInterval(updateProgressValue, 10);
+
+// function where progressBar.value is changed when slider thumb is dragged without auto-playing audio
+let  changeProgressBar = () => {
+    song.currentTime = progressBar.value;
+};
+
